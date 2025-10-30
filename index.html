@@ -81,7 +81,7 @@
 </head>
 <body>
   <div class="report-card">
-    <h2>KIDS SCHOOL</h2>
+    <h2>Government School Boys</h2>
     <h3>HOLISTIC PROGRESS CARD FOR THE YEAR 2025</h3>
 
     <!-- Student Info -->
@@ -180,16 +180,14 @@
       </table>
     </div>
 
-    <!-- Grade Key -->
-    <div class="grade-key section">
-      <h4>Percentage / Grade Key</h4>
+    <!-- Total Marks Section -->
+    <div class="section">
       <table>
-        <tr><th>Percentage</th><th>Grade</th></tr>
-        <tr><td>>85% to 100%</td><td>A+</td></tr>
-        <tr><td>>70% to 85%</td><td>A</td></tr>
-        <tr><td>>55% to 70%</td><td>B</td></tr>
-        <tr><td>>40% to 55%</td><td>C</td></tr>
-        <tr><td>>33% to 40%</td><td>D</td></tr>
+        <tr><td>Max Marks:</td><td><input type="text" id="maxMarks" readonly value="600"></td></tr>
+        <tr><td>Total Marks Obtained:</td><td><input type="text" id="totalMarks" readonly></td></tr>
+        <tr><td>Overall Percentage:</td><td><input type="text" id="overallPercent" readonly></td></tr>
+        <tr><td>Overall Grade:</td><td><input type="text" id="overallGrade" readonly></td></tr>
+        <tr><td>Result:</td><td><input type="text" id="result" readonly></td></tr>
       </table>
     </div>
 
@@ -283,6 +281,21 @@ document.addEventListener("DOMContentLoaded", function() {
       grandGrade.value = calculateGrade(avg);
       grandProficiency.value = calculateProficiency(avg);
     }
+
+    // Update Total Marks Section
+    const totalMarks = document.getElementById("totalMarks");
+    const maxMarks = document.getElementById("maxMarks");
+    const overallPercent = document.getElementById("overallPercent");
+    const overallGrade = document.getElementById("overallGrade");
+    const result = document.getElementById("result");
+
+    const max = parseFloat(maxMarks.value) || 600;
+    totalMarks.value = grandTotalInput.value || 0;
+
+    const percent = ((+totalMarks.value / max) * 100).toFixed(2);
+    overallPercent.value = percent + "%";
+    overallGrade.value = grandGrade.value;
+    result.value = percent >= 33 ? "PASS" : "FAIL";
   }
 
   table.addEventListener("input", updateAll);
