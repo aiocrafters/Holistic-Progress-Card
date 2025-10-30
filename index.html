@@ -81,7 +81,7 @@
     </tr>
   </table>
 
-  <!-- Marks Table (unchanged) -->
+  <!-- Marks Table -->
   <div class="section">
     <table id="marksTable">
       <tr>
@@ -213,7 +213,6 @@
   </table>
 </div>
 
-
   <!-- Grade Key -->
   <div class="grade-key section">
     <h4>Percentage / Grade Key</h4>
@@ -265,8 +264,10 @@
     <strong>Note (As per NEP 2020):</strong>
     <p style="margin:5px 0;">This Holistic Progress Card reflects comprehensive growth of the learner — academic, emotional, physical, and social — rather than marks alone. The purpose is to encourage continuous learning, curiosity, and skill development in every student.</p>
   </div>
+</div> <!-- end of report-card -->
 
-  <!-- Buttons -->
+<!-- Buttons (outside report-card) -->
+<div style="max-width:900px;margin:20px auto;text-align:center;">
   <button type="button" class="print-btn" onclick="window.print()">Print Report Card</button>
   <button type="button" onclick="exportToPDF()">Export to PDF (A4)</button>
 </div>
@@ -302,7 +303,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const g = r.querySelectorAll("input[type='text']")[0];
       const p = r.querySelectorAll("input[type='text']")[1];
 
-      // clamp FA
       fa.forEach(i=>i.value = clamp(+i.value||0,0,5));
       co.value = clamp(+co.value||0,0,20);
       sum.value = clamp(+sum.value||0,0,50);
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   table.addEventListener("input", updateAll);
-  updateAll();   // initial run
+  updateAll();
 });
 
 /* ---------- PDF Export ---------- */
