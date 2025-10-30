@@ -58,6 +58,7 @@
   .info-table td {
     border: none;
     padding: 5px 10px;
+    text-align: left;
   }
   .grade-key, .proficiency {
     border: 1px solid #999;
@@ -105,20 +106,34 @@
     <!-- Student Info -->
     <table class="info-table">
       <tr>
-        <td>Student Name: <input type="text" id="studentName"></td>
-        <td>Adm. No: <input type="text" id="admNo"></td>
+        <td>Student Name:</td>
+        <td><input type="text" id="studentName"></td>
+        <td>Adm. No:</td>
+        <td><input type="text" id="admNo"></td>
       </tr>
       <tr>
-        <td>Father's Name: <input type="text" id="fatherName"></td>
-        <td>D.O.B: <input type="text" id="dob"></td>
+        <td>Father's Name:</td>
+        <td><input type="text" id="fatherName"></td>
+        <td>Pen Name:</td>
+        <td><input type="text" id="penName"></td>
       </tr>
       <tr>
-        <td>Mother's Name: <input type="text" id="motherName"></td>
-        <td>Class: <input type="text" id="className"></td>
+        <td>Mother's Name:</td>
+        <td><input type="text" id="motherName"></td>
+        <td>Class:</td>
+        <td><input type="text" id="className"></td>
       </tr>
       <tr>
-        <td>Academic Session: <input type="text" id="session"></td>
-        <td>Roll No: <input type="text" id="rollNo"></td>
+        <td>Academic Session:</td>
+        <td><input type="text" id="session"></td>
+        <td>Roll No:</td>
+        <td><input type="text" id="rollNo"></td>
+      </tr>
+      <tr>
+        <td>D.O.B:</td>
+        <td><input type="text" id="dob"></td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
 
@@ -251,6 +266,15 @@
     </div>
 
     <p style="text-align:center; margin-top:20px;"><em>Seal & Signature of HOI</em></p>
+
+    <!-- NEP 2020 Note -->
+    <div class="section" style="margin-top: 20px; background-color: #e8f0ff; padding: 10px; border-left: 4px solid #3f51b5; border-radius: 5px;">
+      <strong>📘 Note (As per NEP 2020):</strong>
+      <p style="margin: 5px 0;">
+        This Holistic Progress Card reflects comprehensive growth of the learner — academic, emotional, physical, and social — rather than marks alone. The purpose is to encourage continuous learning, curiosity, and skill development in every student.
+      </p>
+    </div>
+
     <button type="button">Submit to Google Sheet</button>
   </div>
 
