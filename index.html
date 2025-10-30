@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Holistic Progress Card</title>
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
   body {
     font-family: "Segoe UI", sans-serif;
@@ -77,6 +80,20 @@
   button:hover {
     background: #283593;
   }
+  /* Proficiency icons styling */
+  .proficiency i {
+    font-size: 36px;
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+    color: gray;
+    transition: all 0.3s ease;
+  }
+  .proficiency i.active {
+    color: #3f51b5;
+    border: 2px solid #3f51b5;
+  }
 </style>
 </head>
 <body>
@@ -129,7 +146,6 @@
           <td><input type="number" readonly></td><td><input type="text" readonly></td>
           <td><input type="text" readonly></td>
         </tr>
-
         <tr><td>Math</td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
@@ -137,7 +153,6 @@
           <td><input type="number" readonly></td><td><input type="text" readonly></td>
           <td><input type="text" readonly></td>
         </tr>
-
         <tr><td>Science</td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
@@ -145,7 +160,6 @@
           <td><input type="number" readonly></td><td><input type="text" readonly></td>
           <td><input type="text" readonly></td>
         </tr>
-
         <tr><td>Social Science</td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
@@ -153,7 +167,6 @@
           <td><input type="number" readonly></td><td><input type="text" readonly></td>
           <td><input type="text" readonly></td>
         </tr>
-
         <tr><td>Urdu</td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
@@ -161,7 +174,6 @@
           <td><input type="number" readonly></td><td><input type="text" readonly></td>
           <td><input type="text" readonly></td>
         </tr>
-
         <tr><td>Kashmiri</td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
           <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
@@ -211,7 +223,7 @@
       </table>
     </div>
 
-    <!-- Proficiency -->
+    <!-- Proficiency with Icons -->
     <div class="proficiency section">
       <h4>Level of Proficiency</h4>
       <table>
@@ -219,9 +231,9 @@
           <th>Stream</th><th>Mountain</th><th>Sky</th>
         </tr>
         <tr>
-          <td><input type="checkbox" id="streamBox" disabled></td>
-          <td><input type="checkbox" id="mountainBox" disabled></td>
-          <td><input type="checkbox" id="skyBox" disabled></td>
+          <td><i class="fas fa-water" id="streamIcon"></i></td>
+          <td><i class="fas fa-mountain" id="mountainIcon"></i></td>
+          <td><i class="fas fa-sun" id="skyIcon"></i></td>
         </tr>
       </table>
     </div>
@@ -258,6 +270,15 @@ document.addEventListener("DOMContentLoaded", function() {
     if (total < 60) return "Stream";
     if (total < 85) return "Mountain";
     return "Sky";
+  }
+
+  function updateProficiencyIcon(level) {
+    const icons = ["streamIcon", "mountainIcon", "skyIcon"];
+    icons.forEach(id => document.getElementById(id).classList.remove("active"));
+
+    if (level === "Stream") document.getElementById("streamIcon").classList.add("active");
+    if (level === "Mountain") document.getElementById("mountainIcon").classList.add("active");
+    if (level === "Sky") document.getElementById("skyIcon").classList.add("active");
   }
 
   function updateAll() {
@@ -298,8 +319,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (count > 0) {
       const avg = totalSum / count;
       grandTotalInput.value = totalSum;
+      const profLevel = calculateProficiency(avg);
       grandGrade.value = calculateGrade(avg);
-      grandProficiency.value = calculateProficiency(avg);
+      grandProficiency.value = profLevel;
+
+      updateProficiencyIcon(profLevel);
     }
 
     // Update Total Marks Section
