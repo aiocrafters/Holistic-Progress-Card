@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holistic Progress Card</title>
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5faff;
+    padding: 20px;
+  }
+  .report-card {
+    background: #fff;
+    max-width: 900px;
+    margin: auto;
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  h2, h3 {
+    text-align: center;
+    margin: 5px 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #666;
+    text-align: center;
+    padding: 6px;
+  }
+  th {
+    background-color: #d6e4ff;
+  }
+  input[type="text"], input[type="number"] {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+  }
+  input[readonly] {
+    background-color: #f0f0f0;
+  }
+  textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .section {
+    margin-top: 20px;
+  }
+  .info-table td {
+    border: none;
+    padding: 5px 10px;
+  }
+  .grade-key, .proficiency {
+    border: 1px solid #999;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .footer {
+    margin-top: 20px;
+  }
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: #3f51b5;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: #283593;
+  }
+</style>
+</head>
+<body>
+  <div class="report-card">
+    <h2>KIDS SCHOOL</h2>
+    <h3>HOLISTIC PROGRESS CARD FOR THE YEAR 2025</h3>
+
+    <!-- Student Info -->
+    <table class="info-table">
+      <tr>
+        <td>Student Name: <input type="text" id="studentName"></td>
+        <td>Adm. No: <input type="text" id="admNo"></td>
+      </tr>
+      <tr>
+        <td>Father's Name: <input type="text" id="fatherName"></td>
+        <td>D.O.B: <input type="text" id="dob"></td>
+      </tr>
+      <tr>
+        <td>Mother's Name: <input type="text" id="motherName"></td>
+        <td>Class: <input type="text" id="className"></td>
+      </tr>
+      <tr>
+        <td>Academic Session: <input type="text" id="session"></td>
+        <td>Roll No: <input type="text" id="rollNo"></td>
+      </tr>
+    </table>
+
+    <!-- Subjects & Assessments -->
+    <div class="section">
+      <table id="marksTable">
+        <tr>
+          <th rowspan="2">Subject</th>
+          <th colspan="6">Formative Assessments (5 marks each)</th>
+          <th rowspan="2">Total (30)</th>
+          <th rowspan="2">Co-Curricular (20)</th>
+          <th rowspan="2">Summative (50)</th>
+          <th rowspan="2">Total (100)</th>
+          <th rowspan="2">Grade</th>
+          <th rowspan="2">Proficiency Level</th>
+        </tr>
+        <tr>
+          <th>FA1</th><th>FA2</th><th>FA3</th><th>FA4</th><th>FA5</th><th>FA6</th>
+        </tr>
+
+        <!-- Subject Rows -->
+        <tr><td>English</td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="text" readonly></td>
+          <td><input type="text" readonly></td>
+        </tr>
+
+        <tr><td>Math</td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="text" readonly></td>
+          <td><input type="text" readonly></td>
+        </tr>
+
+        <tr><td>Science</td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="text" readonly></td>
+          <td><input type="text" readonly></td>
+        </tr>
+
+        <tr><td>Social Science</td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="text" readonly></td>
+          <td><input type="text" readonly></td>
+        </tr>
+
+        <tr><td>Urdu</td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="text" readonly></td>
+          <td><input type="text" readonly></td>
+        </tr>
+
+        <tr><td>Kashmiri</td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number"></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="number"></td><td><input type="number"></td>
+          <td><input type="number" readonly></td><td><input type="text" readonly></td>
+          <td><input type="text" readonly></td>
+        </tr>
+
+        <!-- Grand Total Row -->
+        <tr id="grandTotalRow">
+          <th colspan="10">Grand Total</th>
+          <td><input type="number" id="grandTotal100" readonly></td>
+          <td><input type="text" id="grandGrade" readonly></td>
+          <td><input type="text" id="grandProficiency" readonly></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Grade Key -->
+    <div class="grade-key section">
+      <h4>Percentage / Grade Key</h4>
+      <table>
+        <tr><th>Percentage</th><th>Grade</th></tr>
+        <tr><td>>85% to 100%</td><td>A+</td></tr>
+        <tr><td>>70% to 85%</td><td>A</td></tr>
+        <tr><td>>55% to 70%</td><td>B</td></tr>
+        <tr><td>>40% to 55%</td><td>C</td></tr>
+        <tr><td>>33% to 40%</td><td>D</td></tr>
+      </table>
+    </div>
+
+    <!-- Proficiency -->
+    <div class="proficiency section">
+      <h4>Level of Proficiency</h4>
+      <table>
+        <tr>
+          <th>Stream</th><th>Mountain</th><th>Sky</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="streamBox" disabled></td>
+          <td><input type="checkbox" id="mountainBox" disabled></td>
+          <td><input type="checkbox" id="skyBox" disabled></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Remarks -->
+    <div class="section footer">
+      <h4>Form Teacher Remarks</h4>
+      <textarea rows="3" placeholder="Enter remarks here..."></textarea>
+      <table>
+        <tr><td>Sign. Class Teacher:</td><td><input type="text"></td></tr>
+        <tr><td>Sign. Exam I/C:</td><td><input type="text"></td></tr>
+        <tr><td>Parent’s Signature:</td><td><input type="text"></td></tr>
+      </table>
+    </div>
+
+    <p style="text-align:center; margin-top:20px;"><em>Seal & Signature of HOI</em></p>
+    <button type="button">Submit to Google Sheet</button>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const table = document.getElementById("marksTable");
+
+  function calculateGrade(total) {
+    if (total > 85) return "A+";
+    if (total > 70) return "A";
+    if (total > 55) return "B";
+    if (total > 40) return "C";
+    if (total > 33) return "D";
+    return "F";
+  }
+
+  function calculateProficiency(total) {
+    if (total < 60) return "Stream";
+    if (total < 85) return "Mountain";
+    return "Sky";
+  }
+
+  function updateAll() {
+    const subjectRows = table.querySelectorAll("tr:not(:first-child):not(:nth-child(2)):not(#grandTotalRow)");
+    let totalSum = 0, count = 0;
+
+    subjectRows.forEach(row => {
+      const inputs = row.querySelectorAll("input[type='number']");
+      if (inputs.length === 10) {
+        const faInputs = Array.from(inputs).slice(0, 6);
+        const total30 = inputs[6];
+        const coCurricular = inputs[7];
+        const summative = inputs[8];
+        const total100 = inputs[9];
+        const gradeInput = row.querySelectorAll("input[type='text']")[0];
+        const proficiencyInput = row.querySelectorAll("input[type='text']")[1];
+
+        const faTotal = faInputs.reduce((sum, i) => sum + (+i.value || 0), 0);
+        total30.value = faTotal;
+
+        const total = faTotal + (+coCurricular.value || 0) + (+summative.value || 0);
+        total100.value = total;
+
+        gradeInput.value = calculateGrade(total);
+        proficiencyInput.value = calculateProficiency(total);
+
+        if (!isNaN(total) && total > 0) {
+          totalSum += total;
+          count++;
+        }
+      }
+    });
+
+    const grandTotalInput = document.getElementById("grandTotal100");
+    const grandGrade = document.getElementById("grandGrade");
+    const grandProficiency = document.getElementById("grandProficiency");
+
+    if (count > 0) {
+      const avg = totalSum / count;
+      grandTotalInput.value = totalSum;
+      grandGrade.value = calculateGrade(avg);
+      grandProficiency.value = calculateProficiency(avg);
+    }
+  }
+
+  table.addEventListener("input", updateAll);
+});
+</script>
+</body>
+</html>
